@@ -16,4 +16,10 @@ describe('fizzbuzz', () => {
   it('should return an empty string, if the provided argument is not multiple of 3 or 5', () => {
     expect(fizzbuzz(13)).toBe('');
   });
+
+  it('should throw an error if the provided argument is greater than 100', () => {
+    expect(() => {
+      fizzbuzz(101);
+    }).toThrow('Number should be in range [1, 100]');
+  });
 });

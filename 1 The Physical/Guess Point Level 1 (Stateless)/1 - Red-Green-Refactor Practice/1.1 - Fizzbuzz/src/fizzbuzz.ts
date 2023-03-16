@@ -1,4 +1,8 @@
 export function fizzbuzz(number: number) {
+  if (number > 100) {
+    throw new Error('Number should be in range [1, 100]');
+  }
+
   if (number % 3 === 0 && number % 5 === 0) {
     return 'FizzBuzz';
   }
