@@ -1,4 +1,4 @@
-import { fizzbuzz } from './fizzbuzz';
+import { fizzbuzz, RANGE_ERROR } from './fizzbuzz';
 
 describe('fizzbuzz', () => {
   it('should return Fizz, if the provided argument is multiple of 3', () => {
@@ -20,12 +20,12 @@ describe('fizzbuzz', () => {
   it('should throw an error if the provided argument is greater than 100', () => {
     expect(() => {
       fizzbuzz(101);
-    }).toThrow('Number should be in range [1, 100]');
+    }).toThrow(RANGE_ERROR);
   });
 
   it('should throw an error if the provided argument is less than 1', () => {
     expect(() => {
       fizzbuzz(0);
-    }).toThrow('Number should be in range [1, 100]');
+    }).toThrow(RANGE_ERROR);
   });
 });

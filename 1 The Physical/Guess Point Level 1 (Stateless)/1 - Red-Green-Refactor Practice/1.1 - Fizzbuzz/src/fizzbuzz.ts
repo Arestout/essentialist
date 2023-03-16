@@ -1,6 +1,8 @@
+export const RANGE_ERROR = 'Number should be in range [1, 100]';
+
 export function fizzbuzz(number: number) {
   if (number < 1 || number > 100) {
-    throw new Error('Number should be in range [1, 100]');
+    throw new Error(RANGE_ERROR);
   }
 
   if (number % 3 === 0 && number % 5 === 0) {
