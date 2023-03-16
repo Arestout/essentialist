@@ -1,5 +1,5 @@
 export function fizzbuzz(number: number) {
-  if (number > 100) {
+  if (number < 1 || number > 100) {
     throw new Error('Number should be in range [1, 100]');
   }
 

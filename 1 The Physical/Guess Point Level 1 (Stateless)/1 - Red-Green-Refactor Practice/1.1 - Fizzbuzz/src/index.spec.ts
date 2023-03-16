@@ -22,4 +22,10 @@ describe('fizzbuzz', () => {
       fizzbuzz(101);
     }).toThrow('Number should be in range [1, 100]');
   });
+
+  it('should throw an error if the provided argument is less than 1', () => {
+    expect(() => {
+      fizzbuzz(0);
+    }).toThrow('Number should be in range [1, 100]');
+  });
 });
