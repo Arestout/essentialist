@@ -8,4 +8,8 @@ describe('fizzbuzz', () => {
   it('should return Buzz, if the provided argument is multiple of 5', () => {
     expect(fizzbuzz(5)).toBe('Buzz');
   });
+
+  it('should return FizzBuzz, if the provided argument is multiple of both 3 and 5', () => {
+    expect(fizzbuzz(15)).toBe('FizzBuzz');
+  });
 });
