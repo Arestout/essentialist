@@ -1,5 +1,5 @@
-export function palindromeChecker(word: string) {
-  const reversedWord = word.split('').reverse().join('');
+export function palindromeChecker(phrase: string) {
+  const reversedPhrase = phrase.split('').reverse().join('');
 
-  return word.toLocaleLowerCase() === reversedWord.toLocaleLowerCase();
+  return phrase.toLocaleLowerCase() === reversedPhrase.toLocaleLowerCase();
 }
