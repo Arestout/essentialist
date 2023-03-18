@@ -1,3 +1,5 @@
 export function palindromeChecker(word: string) {
-  return true;
+  const reversedWord = word.split('').reverse().join('');
+
+  return word === reversedWord;
 }
