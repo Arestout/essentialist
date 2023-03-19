@@ -1,4 +1,4 @@
-import { validatePassword } from './index';
+import { validatePassword, VALIDATION_ERRORS } from './index';
 
 describe('password validator', () => {
   it('returns validation result without errors', () => {
@@ -13,7 +13,7 @@ describe('password validator', () => {
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
-    expect(validationResponse.errors[0]).toEqual({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
+    expect(validationResponse.errors[0]).toEqual(VALIDATION_ERRORS.LengthRangeError);
   });
 
   it('returns validation result with errors when the password is more than 15 characters long', () => {
@@ -21,7 +21,7 @@ describe('password validator', () => {
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
-    expect(validationResponse.errors[0]).toEqual({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
+    expect(validationResponse.errors[0]).toEqual(VALIDATION_ERRORS.LengthRangeError);
   });
 
   it('returns validation result with errors when the password has no digits', () => {
@@ -29,7 +29,7 @@ describe('password validator', () => {
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
-    expect(validationResponse.errors[0]).toEqual({ type: 'NoDigitsError', message: 'The password should contain at least 1 digit' });
+    expect(validationResponse.errors[0]).toEqual(VALIDATION_ERRORS.NoDigitsError);
   });
 
   it('returns validation result with errors when the password has no uppercase letters', () => {
@@ -37,7 +37,7 @@ describe('password validator', () => {
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
-    expect(validationResponse.errors[0]).toEqual({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
+    expect(validationResponse.errors[0]).toEqual(VALIDATION_ERRORS.NoUpperCaseError);
   });
 
   it('returns validation result with multiple errors', () => {
@@ -45,8 +45,8 @@ describe('password validator', () => {
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(3);
-    expect(validationResponse.errors[0]).toEqual({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
-    expect(validationResponse.errors[1]).toEqual({ type: 'NoDigitsError', message: 'The password should contain at least 1 digit' });
-    expect(validationResponse.errors[2]).toEqual({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
+    expect(validationResponse.errors[0]).toEqual(VALIDATION_ERRORS.LengthRangeError);
+    expect(validationResponse.errors[1]).toEqual(VALIDATION_ERRORS.NoDigitsError);
+    expect(validationResponse.errors[2]).toEqual(VALIDATION_ERRORS.NoUpperCaseError);
   });
 });
