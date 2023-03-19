@@ -9,7 +9,7 @@ describe('password validator', () => {
   });
 
   it('returns validation result with errors when the password is less than 5 characters long', () => {
-    const validationResponse = validatePassword('tes1');
+    const validationResponse = validatePassword('Tes1');
 
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
@@ -30,5 +30,13 @@ describe('password validator', () => {
     expect(validationResponse.result).toBeFalsy();
     expect(validationResponse.errors.length).toBe(1);
     expect(validationResponse.errors[0]).toEqual({ type: 'NoDigitsError', message: 'The password should contain at least 1 digit' });
+  });
+
+  it('returns validation result with errors when the password has no uppercase letters', () => {
+    const validationResponse = validatePassword('testpass5');
+
+    expect(validationResponse.result).toBeFalsy();
+    expect(validationResponse.errors.length).toBe(1);
+    expect(validationResponse.errors[0]).toEqual({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
   });
 });

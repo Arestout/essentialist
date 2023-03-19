@@ -11,6 +11,12 @@ export function validatePassword(password: string) {
     errors.push({ type: 'NoDigitsError', message: 'The password should contain at least 1 digit' });
   }
 
+  const hasUppercase = password.split('').some((character) => !Number.isFinite(Number(character)) && character === character.toUpperCase());
+
+  if (!hasUppercase) {
+    errors.push({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
+  }
+
   return {
     result: errors.length === 0,
     errors,
