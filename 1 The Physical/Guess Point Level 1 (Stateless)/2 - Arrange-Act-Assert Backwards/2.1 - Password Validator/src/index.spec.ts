@@ -39,4 +39,14 @@ describe('password validator', () => {
     expect(validationResponse.errors.length).toBe(1);
     expect(validationResponse.errors[0]).toEqual({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
   });
+
+  it('returns validation result with multiple errors', () => {
+    const validationResponse = validatePassword('oops');
+
+    expect(validationResponse.result).toBeFalsy();
+    expect(validationResponse.errors.length).toBe(3);
+    expect(validationResponse.errors[0]).toEqual({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
+    expect(validationResponse.errors[1]).toEqual({ type: 'NoDigitsError', message: 'The password should contain at least 1 digit' });
+    expect(validationResponse.errors[2]).toEqual({ type: 'NoUpperCaseError', message: 'The password should contain at least 1 upper case letter' });
+  });
 });
