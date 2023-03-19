@@ -1,9 +1,14 @@
+type ValidationErrors = {
+  type: 'LengthRangeError' | 'NoDigitsError' | 'NoUpperCaseError';
+  message: string;
+};
+
 const checkLengthInRange = (min = 5, max = 15, string = '') => string.length >= min && string.length <= max;
 const hasDigits = (string: string) => string.split('').some((character) => Number.isFinite(Number(character)));
 const hasUppercase = (string: string) => string.split('').some((character) => !Number.isFinite(Number(character)) && character === character.toUpperCase());
 
 export function validatePassword(password: string) {
-  const errors = [];
+  const errors: ValidationErrors[] = [];
 
   if (!checkLengthInRange(5, 15, password)) {
     errors.push({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
