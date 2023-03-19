@@ -1,7 +1,9 @@
+const checkLengthInRange = (min = 5, max = 15, string = '') => string.length >= min && string.length <= max;
+
 export function validatePassword(password: string) {
   const errors = [];
 
-  if (password.length < 5 || password.length > 15) {
+  if (!checkLengthInRange(5, 15, password)) {
     errors.push({ type: 'LengthRangeError', message: 'The password should be between 5 and 10 characters long' });
   }
 
