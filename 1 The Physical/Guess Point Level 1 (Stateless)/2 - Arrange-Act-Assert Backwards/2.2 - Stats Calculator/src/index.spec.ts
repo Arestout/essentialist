@@ -1,6 +1,6 @@
 import { statsCalculator } from './index';
 
-const CALCULATOR_INPUT = [2, 4, 21, -8, 53, 40];
+const CALCULATOR_INPUT = [2, 4, 21, -8, 53, 40] as const;
 
 describe('stats calculator', () => {
   it('should return correct minimal value', () => {

@@ -1,4 +1,6 @@
-export function statsCalculator(numbers: number[]) {
+type NonEmptyArray<T> = readonly [T, ...T[]];
+
+export function statsCalculator(numbers: NonEmptyArray<number>) {
   const result = {
     averageValue: 0,
     elementsCount: numbers.length,
