@@ -20,4 +20,10 @@ describe('stats calculator', () => {
 
     expect(result.elementsCount).toBe(6);
   });
+
+  it('should return correct average value', () => {
+    const result = statsCalculator(CALCULATOR_INPUT);
+
+    expect(result.averageValue).toBe(18.666666666667);
+  });
 });
