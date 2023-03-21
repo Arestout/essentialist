@@ -1,5 +1,6 @@
 export function statsCalculator(numbers: number[]) {
   const result = {
+    elementsCount: numbers.length,
     minValue: +Infinity,
     maxValue: -Infinity,
   };

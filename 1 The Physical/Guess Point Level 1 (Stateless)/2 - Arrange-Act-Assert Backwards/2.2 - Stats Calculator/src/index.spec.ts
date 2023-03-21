@@ -12,4 +12,10 @@ describe('stats calculator', () => {
 
     expect(result.maxValue).toBe(53);
   });
+
+  it('should return correct elements count', () => {
+    const result = statsCalculator([2, 4, 21, -8, 53, 40]);
+
+    expect(result.elementsCount).toBe(6);
+  });
 });
