@@ -6,4 +6,10 @@ describe('stats calculator', () => {
 
     expect(result.minValue).toBe(-8);
   });
+
+  it('should return correct max value', () => {
+    const result = statsCalculator([2, 4, 21, -8, 53, 40]);
+
+    expect(result.maxValue).toBe(53);
+  });
 });

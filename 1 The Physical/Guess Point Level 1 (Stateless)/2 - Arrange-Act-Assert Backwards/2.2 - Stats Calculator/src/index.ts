@@ -1,5 +1,18 @@
 export function statsCalculator(numbers: number[]) {
-  return {
-    minValue: -8,
+  const result = {
+    minValue: +Infinity,
+    maxValue: -Infinity,
   };
+
+  for (const num of numbers) {
+    if (num < result.minValue) {
+      result.minValue = num;
+    }
+
+    if (num > result.maxValue) {
+      result.maxValue = num;
+    }
+  }
+
+  return result;
 }
